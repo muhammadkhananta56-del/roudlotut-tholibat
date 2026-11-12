@@ -2,15 +2,19 @@
 
 @theme {
   --color-brand-900: #063d2c;
+  --color-brand-800: #054a34;
   --color-brand-700: #075c40;
+  --color-brand-600: #0d704f;
   --color-brand-500: #13845a;
   --color-gold-400: #d8b66a;
+  --color-gold-500: #c49e48;
   --color-cream-50: #f7f5ec;
+  --color-cream-100: #ede9da;
   --color-ink-900: #202b25;
   --color-ink-500: #5c655f;
 
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-playfair), Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
 
   --radius-card: 16px;
   --radius-button: 12px;
@@ -27,34 +31,10 @@ body {
   background: #ffffff;
   color: var(--color-ink-900);
   font-family: var(--font-sans);
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 :focus-visible {
   outline: 3px solid var(--color-gold-400);
   outline-offset: 2px;
-}
-
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fade-up 400ms ease-out both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  .animate-fade-up {
-    animation: none;
-  }
 }

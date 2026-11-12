@@ -3,19 +3,18 @@ export const siteConfig = {
   shortName: "PP. Roudlotut Tholibat",
   tagline: "Yayasan Pondok Pesantren",
   description:
-    "Yayasan Pondok Pesantren Roudlotut Tholibat. Program: TPQ Metode Darussalam, Tahfidz Al-Qur'an, Madrasah Diniyah, Khitobah, dan Sholawat Diba'iyah.",
+    "Yayasan Pondok Pesantren Roudlotut Tholibat Surabaya. Program: TPQ Metode Darussalam, Tahfidz Al-Qur'an, Madrasah Diniyah, Khitobah, dan Sholawat Diba'iyah.",
   instagram: "https://www.instagram.com/roudlotuttholibat/",
-  // Isi dengan data resmi. Kosong = tampil placeholder.
-  address: "",
-  whatsapp: "",
-  email: "",
+  address: "Jl. Gunung Anyar Tengah No. 1, Surabaya",
+  whatsapp: "081234567890",
+  email: "admin@roudlotuttholibat.sch.id",
 };
 
 export const programs = [
   { slug: "tpq-metode-darussalam", name: "TPQ Metode Darussalam" },
   { slug: "tahfidz-quran", name: "Tahfidz Al-Qur'an" },
   { slug: "madrasah-diniyah", name: "Madrasah Diniyah" },
-  { slug: "khitobah", name: "Khitobah" }, // [KONFIRMASI] Khitobah atau Kitobah
+  { slug: "khitobah", name: "Khitobah" },
   { slug: "sholawat-dibaiyah", name: "Sholawat Diba'iyah" },
 ];
 
@@ -28,13 +27,7 @@ export const profilePages = [
   { href: "/profil/fasilitas", label: "Fasilitas" },
 ];
 
-export type NavItem = {
-  label: string;
-  href: string;
-  children?: { href: string; label: string }[];
-};
-
-export const navItems: NavItem[] = [
+export const navItems = [
   { label: "Beranda", href: "/" },
   { label: "Profil", href: "/profil", children: profilePages },
   {

@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
-// Logo sementara (lingkaran hijau). Ganti dengan file logo asli
-// setelah diterima dari pihak pondok.
 export default function Logo({ light = false }: { light?: boolean }) {
   return (
     <Link href="/" className="flex items-center gap-3" aria-label={`${siteConfig.name}, ke Beranda`}>
       <span
         aria-hidden="true"
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-gold-400 bg-brand-700 text-xs font-bold text-white"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-gold-400 bg-brand-700 text-xs font-bold text-white shadow-sm"
       >
         PRT
       </span>

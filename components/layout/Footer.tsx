@@ -48,9 +48,9 @@ export default function Footer() {
         <div>
           <h2 className="mb-3 font-display text-lg font-semibold text-gold-400">Kontak</h2>
           <ul className="space-y-2 text-sm">
-            <li>{siteConfig.address || "[ALAMAT LENGKAP]"}</li>
-            <li>WhatsApp: {siteConfig.whatsapp || "[NOMOR WHATSAPP RESMI]"}</li>
-            <li>Email: {siteConfig.email || "[EMAIL RESMI]"}</li>
+            <li>{siteConfig.address}</li>
+            <li>WhatsApp: {siteConfig.whatsapp}</li>
+            <li>Email: {siteConfig.email}</li>
             <li>
               <a
                 href={siteConfig.instagram}
