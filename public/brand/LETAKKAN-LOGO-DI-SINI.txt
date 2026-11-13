@@ -1,0 +1,1 @@
+Letakkan logo asli di folder ini (logo.png atau logo.svg), lalu isi logoSrc di lib/site.ts.

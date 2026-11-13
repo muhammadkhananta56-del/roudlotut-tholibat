@@ -2,39 +2,250 @@
 
 @theme {
   --color-brand-900: #063d2c;
-  --color-brand-800: #054a34;
   --color-brand-700: #075c40;
-  --color-brand-600: #0d704f;
   --color-brand-500: #13845a;
   --color-gold-400: #d8b66a;
-  --color-gold-500: #c49e48;
   --color-cream-50: #f7f5ec;
-  --color-cream-100: #ede9da;
+  --color-cream-100: #ece7d3;
   --color-ink-900: #202b25;
   --color-ink-500: #5c655f;
+  --color-danger: #b91c1c;
 
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
 
   --radius-card: 16px;
   --radius-button: 12px;
   --radius-input: 10px;
+  --radius-panel: 40px;
 
   --shadow-soft: 0 4px 24px rgba(6, 61, 44, 0.08);
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  a[href],
+  button:not(:disabled),
+  summary,
+  select,
+  label[for],
+  [role="button"],
+  input[type="radio"],
+  input[type="checkbox"],
+  input[type="date"] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  /* Cincin fokus hijau di latar terang, emas di latar gelap. */
+  :focus-visible {
+    outline: 3px solid var(--color-brand-500);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-gold-400);
+  }
+
+  /* Anak kisi boleh menyusut, supaya konten lebar (misalnya chip yang bisa digeser) tidak melebarkan halaman. */
+  .grid > * {
+    min-width: 0;
+  }
+
+  ::selection {
+    background: var(--color-gold-400);
+    color: var(--color-brand-900);
+  }
 }
 
-body {
-  background: #ffffff;
-  color: var(--color-ink-900);
-  font-family: var(--font-sans);
-  line-height: 1.65;
+/* Motif khatam: bintang delapan titik dari dua persegi. Dipakai di hero, banner halaman, dan penutup. */
+.pattern-light {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80' fill='none' stroke='%23ffffff' stroke-opacity='0.07'%3E%3Crect x='16' y='16' width='48' height='48'/%3E%3Crect x='16' y='16' width='48' height='48' transform='rotate(45 40 40)'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+.pattern-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80' fill='none' stroke='%23075c40' stroke-opacity='0.07'%3E%3Crect x='16' y='16' width='48' height='48'/%3E%3Crect x='16' y='16' width='48' height='48' transform='rotate(45 40 40)'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
 }
 
-:focus-visible {
-  outline: 3px solid var(--color-gold-400);
-  outline-offset: 2px;
+/* Urutan masuk hero: satu rangkaian saat halaman dibuka. */
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes arch-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(-60px);
+  }
+}
+.hero-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.hero-line > span {
+  display: block;
+  animation: rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 110ms + 100ms);
+}
+.hero-fade {
+  animation: fade-in 900ms ease both;
+  animation-delay: calc(var(--i, 0) * 110ms + 100ms);
+}
+.hero-arch {
+  animation: arch-in 1200ms cubic-bezier(0.2, 0.7, 0.2, 1) 250ms both;
+}
+
+/* Gerak mengikuti scroll (diatur lewat variabel --p oleh ScrollScene). */
+.star-spin {
+  transform: rotate(calc(var(--p, 0) * 80deg));
+  will-change: transform;
+}
+.arch-drift {
+  transform: translate3d(0, calc(var(--p, 0) * -32px), 0);
+}
+
+/* Muncul saat terlihat. Status diatur oleh komponen Reveal. */
+[data-rv] {
+  transition:
+    opacity 600ms ease,
+    transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    clip-path 1000ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+[data-rv="pending"][data-rv-v="up"] {
+  opacity: 0;
+  transform: translateY(26px);
+}
+[data-rv="pending"][data-rv-v="fade"] {
+  opacity: 0;
+}
+/* Wipe: yang dipotong adalah anak pertamanya, supaya pembungkus tetap bisa diamati. */
+[data-rv-v="wipe"] > * {
+  transition: clip-path 1000ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+[data-rv="pending"][data-rv-v="wipe"] > * {
+  clip-path: inset(100% 0 0 0);
+}
+[data-rv="in"][data-rv-v="wipe"] > * {
+  clip-path: inset(-60px);
+}
+
+/* Carousel */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* FAQ */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary .faq-mark {
+  transform: rotate(45deg);
+}
+.faq-mark {
+  transition: transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Lightbox */
+.lightbox {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+}
+.lightbox[open] {
+  display: flex;
+  flex-direction: column;
+}
+.lightbox::backdrop {
+  background: rgba(6, 61, 44, 0.94);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .star-spin,
+  .arch-drift {
+    transform: none;
+    will-change: auto;
+  }
+  [data-rv="pending"],
+  [data-rv="pending"] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
+
+@media print {
+  [data-rv="pending"],
+  [data-rv="pending"] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
 }

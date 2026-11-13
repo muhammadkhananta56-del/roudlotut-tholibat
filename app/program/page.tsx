@@ -1,36 +1,51 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ArrowRight, BookOpen } from "lucide-react";
 import Container from "@/components/ui/Container";
-import PageHero from "@/components/ui/PageHero";
+import PageHero, { PageBody } from "@/components/ui/PageHero";
+import StarMotif from "@/components/motif/StarMotif";
 import { programs } from "@/lib/site";
+import { buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Program Pendidikan" };
+export const metadata: Metadata = buildMetadata({
+  title: "Program Pendidikan",
+  description:
+    "Program pendidikan PP. Roudlotut Tholibat: TPQ Metode Darussalam, Tahfidz Al-Qur'an, Madrasah Diniyah, Khitobah, dan Sholawat Diba'iyah.",
+  path: "/program",
+});
 
 export default function ProgramIndex() {
   return (
     <>
-      <PageHero title="Program Pendidikan" crumbs={[{ label: "Program" }]} />
-      <Container className="py-12 md:py-16">
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {programs.map((p) => (
-            <li key={p.slug}>
-              <Link
-                href={`/program/${p.slug}`}
-                className="group flex h-full flex-col gap-3 rounded-[var(--radius-card)] border border-brand-700/10 bg-white p-6 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 hover:border-gold-400"
-              >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-cream-50 text-brand-700">
-                  <BookOpen className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <h2 className="font-display text-xl font-semibold text-brand-900">{p.name}</h2>
-                <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-brand-700 group-hover:text-brand-500">
-                  Lihat detail <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Container>
+      <PageHero
+        title="Program Pendidikan"
+        description="Pilih program untuk melihat deskripsi, tujuan, materi, dan metode pembelajarannya."
+        crumbs={[{ label: "Program" }]}
+      />
+      <PageBody>
+        <Container className="pb-20">
+          <ul className="border-t border-brand-700/20">
+            {programs.map((p) => (
+              <li key={p.slug} className="border-b border-brand-700/20">
+                <Link
+                  href={`/program/${p.slug}`}
+                  className="group flex min-h-24 items-center justify-between gap-6 py-6 transition-colors hover:bg-cream-50 sm:px-4"
+                >
+                  <span className="font-display text-2xl font-bold text-brand-900 transition-transform duration-300 group-hover:translate-x-2 sm:text-4xl">
+                    {p.name}
+                  </span>
+                  <span className="flex shrink-0 items-center gap-3 text-sm font-semibold text-brand-700">
+                    <span className="hidden sm:inline">Lihat detail</span>
+                    <StarMotif
+                      className="h-9 w-9 text-brand-700 transition-transform duration-500 group-hover:rotate-90"
+                      strokeWidth={2.2}
+                    />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </PageBody>
     </>
   );
 }
