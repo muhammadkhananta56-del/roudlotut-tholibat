@@ -1,8 +1,9 @@
 import { Clock, MapPin, UserRound } from "lucide-react";
-import { dayParts, fmtTime } from "@/lib/format";
+import { dayParts, fmtTime, toValidDate } from "@/lib/format";
 import type { ScheduleRow as Row } from "@/lib/queries";
 
 export default function ScheduleRow({ item, muted = false }: { item: Row; muted?: boolean }) {
+  if (!toValidDate(item.starts_at)) return null; // data jadwal rusak tidak boleh menjatuhkan seluruh halaman
   const d = dayParts(item.starts_at);
   const cancelled = item.status === "cancelled";
   return (

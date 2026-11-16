@@ -1,16 +1,30 @@
 const TZ = "Asia/Jakarta";
 
-export const fmtDate = (d: Date | string) =>
-  new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: TZ }).format(new Date(d));
+/** Date yang dapat diformat, atau null bila nilainya kosong/tidak valid. */
+export function toValidDate(d: Date | string | null | undefined): Date | null {
+  if (d === null || d === undefined || d === "") return null;
+  const date = new Date(d);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
 
-export const fmtDateShort = (d: Date | string) =>
-  new Intl.DateTimeFormat("id-ID", { day: "numeric", month: "short", year: "numeric", timeZone: TZ }).format(new Date(d));
+export const fmtDate = (d: Date | string) => {
+  const date = toValidDate(d);
+  return date ? new Intl.DateTimeFormat("id-ID", { dateStyle: "long", timeZone: TZ }).format(date) : "";
+};
 
-export const fmtTime = (d: Date | string) =>
-  new Intl.DateTimeFormat("id-ID", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: TZ }).format(new Date(d));
+export const fmtDateShort = (d: Date | string) => {
+  const date = toValidDate(d);
+  return date ? new Intl.DateTimeFormat("id-ID", { day: "numeric", month: "short", year: "numeric", timeZone: TZ }).format(date) : "";
+};
+
+export const fmtTime = (d: Date | string) => {
+  const date = toValidDate(d);
+  return date ? new Intl.DateTimeFormat("id-ID", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: TZ }).format(date) : "";
+};
 
 export function dayParts(d: Date | string) {
-  const date = new Date(d);
+  const date = toValidDate(d);
+  if (!date) return { day: "-", month: "", weekday: "", year: "" };
   const f = (o: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat("id-ID", { ...o, timeZone: TZ }).format(date);
   return { day: f({ day: "numeric" }), month: f({ month: "short" }), weekday: f({ weekday: "long" }), year: f({ year: "numeric" }) };
 }

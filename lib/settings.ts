@@ -1,6 +1,7 @@
 import "server-only";
 import { cache } from "react";
 import { db } from "@/lib/db";
+import { withTimeout } from "@/lib/safe";
 
 export type SettingType = "text" | "textarea" | "image" | "url" | "email";
 export type SettingField = {
@@ -102,7 +103,7 @@ export const FIELD_BY_KEY = new Map(ALL_FIELDS.map((f) => [f.key, f]));
 export type Settings = Record<string, string>;
 
 export const getSettings = cache(async (): Promise<Settings> => {
-  const rows = await db()<{ key: string; value: string }[]>`select key, value from settings`;
+  const rows = await withTimeout(db()<{ key: string; value: string }[]>`select key, value from settings`, 8000, "getSettings");
   const out: Settings = { ...DEFAULTS };
   for (const r of rows) out[r.key] = r.value;
   return out;

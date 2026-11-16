@@ -183,7 +183,7 @@
   "area": "Auth",
   "name": "cookie sesi HttpOnly + SameSite=Lax + Path=/",
   "ok": true,
-  "note": "rt_admin=***; Path=/; Expires=Mon, 16 Nov 2026 17:58:57 GMT; Max-Age=28800; Secure; HttpOnly; SameSite=lax"
+  "note": "rt_admin=***; Path=/; Expires=Tue, 17 Nov 2026 00:16:52 GMT; Max-Age=28800; Secure; HttpOnly; SameSite=lax"
  },
  {
   "area": "Auth",
@@ -219,7 +219,7 @@
   "area": "Upload",
   "name": "unggah JPG 3000x2000 via Server Action",
   "ok": true,
-  "note": "site/2026/11/69f2da2d-327c-46de-94b9-1af15867be16.webp"
+  "note": "site/2026/11/1ca4d0a2-fb5d-4c9d-8ade-d041315a7b4c.webp"
  },
  {
   "area": "Upload",
@@ -381,7 +381,7 @@
   "area": "Berita",
   "name": "simpan draft -> redirect ke halaman edit",
   "ok": true,
-  "note": "/admin/berita/8207b2f1-cccb-4bd2-9c75-b530b421ce00?ok=saved"
+  "note": "/admin/berita/ec33ff13-a363-4fd2-8c15-2dcb4f51198c?ok=saved"
  },
  {
   "area": "Berita",
@@ -417,7 +417,7 @@
   "area": "Berita",
   "name": "terbitkan lewat edit",
   "ok": true,
-  "note": "/admin/berita/8207b2f1-cccb-4bd2-9c75-b530b421ce00?ok=saved"
+  "note": "/admin/berita/ec33ff13-a363-4fd2-8c15-2dcb4f51198c?ok=saved"
  },
  {
   "area": "Berita",

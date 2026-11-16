@@ -1,3 +1,4 @@
+import { withTimeout } from "@/lib/safe";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
@@ -19,7 +20,12 @@ import { safeHttpUrl, waLink } from "@/lib/contact";
 import { SITE_FULL_NAME, siteUrl } from "@/lib/site";
 
 export default async function HomePage() {
-  const [st, schedules, news, gallery] = await Promise.all([getSettings(), upcomingSchedules(3), latestNews(3), homeGallery(6)]);
+  const [st, schedules, news, gallery] = await Promise.all([
+    getSettings(),
+    withTimeout(upcomingSchedules(3), 8000, "upcomingSchedules"),
+    withTimeout(latestNews(3), 8000, "latestNews"),
+    withTimeout(homeGallery(6), 8000, "homeGallery"),
+  ]);
   const heroImg = publicUrl(s(st, "hero_image"));
   const caretakerImg = publicUrl(s(st, "caretaker_photo"));
   const about = parseParagraphs(s(st, "about_summary"));

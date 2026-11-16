@@ -18,3 +18,9 @@
 ## Belum diuji
 - Browser nyata (mobile/tablet/desktop) tidak tersedia di lingkungan ini. Tampilan visual, hamburger, overflow, dan animasi belum dilihat langsung; hanya lewat render HTML server dan pembacaan kode. Mohon cek di HP dan laptop setelah deploy.
 - Foto asli tidak ada di ZIP (dikelola lewat Supabase).
+
+## Perbaikan v4 (crash beranda di produksi)
+- Log Vercel menunjukkan `RangeError: Invalid time value` di `ScheduleRow` yang menjatuhkan beranda, disusul "Task timed out after 300 seconds".
+- Fungsi format tanggal (`lib/format.ts`) kini aman terhadap nilai kosong/tidak valid; baris jadwal dengan tanggal rusak dilewati, bukan menjatuhkan halaman.
+- Query beranda dan pengaturan (`lib/safe.ts`) dibatasi 8 detik; bila gagal/lambat, halaman tetap tampil dengan data yang ada (galat dicatat di Vercel Logs).
+- Diuji: typecheck, lint, build, 117 tes e2e lulus; beranda tetap 200 saat database dimatikan.
