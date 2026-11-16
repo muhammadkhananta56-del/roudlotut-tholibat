@@ -1,0 +1,704 @@
+[
+ {
+  "area": "Publik",
+  "name": "GET / (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /profil (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /sejarah (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /berita (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /jadwal (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /galeri (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /pendaftaran (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /kontak (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /robots.txt (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "GET /sitemap.xml (DB kosong) 200",
+  "ok": true,
+  "note": "status 200"
+ },
+ {
+  "area": "Publik",
+  "name": "404 untuk halaman tidak ada",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Publik",
+  "name": "Beranda: satu <h1>, lang=id, viewport",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Publik",
+  "name": "Beranda DB kosong tidak menampilkan bagian kosong/placeholder [..]",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Publik",
+  "name": "Halaman Berita kosong menampilkan empty state",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Publik",
+  "name": "Halaman Jadwal kosong menampilkan empty state",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Publik",
+  "name": "Halaman Galeri kosong menampilkan empty state",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Publik",
+  "name": "Header keamanan (nosniff, X-Frame-Options)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "/admin tanpa cookie menampilkan 404 (alamat login tidak terbuka)",
+  "ok": true,
+  "note": "404 "
+ },
+ {
+  "area": "Auth",
+  "name": "/admin/berita tanpa cookie menampilkan 404 (alamat login tidak terbuka)",
+  "ok": true,
+  "note": "404 "
+ },
+ {
+  "area": "Auth",
+  "name": "/admin/berita/baru tanpa cookie menampilkan 404 (alamat login tidak terbuka)",
+  "ok": true,
+  "note": "404 "
+ },
+ {
+  "area": "Auth",
+  "name": "/admin/jadwal tanpa cookie menampilkan 404 (alamat login tidak terbuka)",
+  "ok": true,
+  "note": "404 "
+ },
+ {
+  "area": "Auth",
+  "name": "/admin/galeri tanpa cookie menampilkan 404 (alamat login tidak terbuka)",
+  "ok": true,
+  "note": "404 "
+ },
+ {
+  "area": "Auth",
+  "name": "/admin/kategori tanpa cookie menampilkan 404 (alamat login tidak terbuka)",
+  "ok": true,
+  "note": "404 "
+ },
+ {
+  "area": "Auth",
+  "name": "/admin/pengaturan tanpa cookie menampilkan 404 (alamat login tidak terbuka)",
+  "ok": true,
+  "note": "404 "
+ },
+ {
+  "area": "Auth",
+  "name": "cookie sesi palsu ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "Server Action tanpa login tidak berhasil",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "password salah ditolak dengan pesan generik",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "email tidak terdaftar: pesan sama persis (anti user-enumeration)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "login benar -> redirect",
+  "ok": true,
+  "note": "303 /admin"
+ },
+ {
+  "area": "Auth",
+  "name": "open redirect (next=//evil) dinetralkan",
+  "ok": true,
+  "note": "/admin"
+ },
+ {
+  "area": "Auth",
+  "name": "cookie sesi HttpOnly + SameSite=Lax + Path=/",
+  "ok": true,
+  "note": "rt_admin=***; Path=/; Expires=Mon, 16 Nov 2026 17:58:57 GMT; Max-Age=28800; Secure; HttpOnly; SameSite=lax"
+ },
+ {
+  "area": "Auth",
+  "name": "dasbor terbuka setelah login",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "halaman login saat sudah masuk diarahkan ke dasbor",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "halaman admin: Cache-Control no-store + noindex",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "password tersimpan sebagai hash bcrypt",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Upload",
+  "name": "sumber uji memuat EXIF",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Upload",
+  "name": "unggah JPG 3000x2000 via Server Action",
+  "ok": true,
+  "note": "site/2026/11/69f2da2d-327c-46de-94b9-1af15867be16.webp"
+ },
+ {
+  "area": "Upload",
+  "name": "hasil: WebP, lebar <= 1800, EXIF/GPS dibuang",
+  "ok": true,
+  "note": "webp 1800x1200 exif=false"
+ },
+ {
+  "area": "Upload",
+  "name": "driver Supabase mengirim auth + content-type + cache-control benar",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Upload",
+  "name": "tidak ada request ditolak karena auth",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Upload",
+  "name": "teks berkedok .jpg ditolak (validasi isi berkas)",
+  "ok": true,
+  "note": "Berkas bukan gambar yang valid."
+ },
+ {
+  "area": "Upload",
+  "name": "SVG (vektor XSS) ditolak",
+  "ok": true,
+  "note": "Berkas bukan gambar yang valid."
+ },
+ {
+  "area": "Upload",
+  "name": "folder tujuan di luar daftar putih ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Upload",
+  "name": "berkas 5 MB ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Pengaturan",
+  "name": "validasi server: WA, email, URL javascript:, path gambar tidak valid",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Pengaturan",
+  "name": "simpan berhasil -> redirect ?ok=saved",
+  "ok": true,
+  "note": "303 /admin/pengaturan?ok=saved"
+ },
+ {
+  "area": "Pengaturan",
+  "name": "tersimpan persisten di database",
+  "ok": true,
+  "note": "26 baris"
+ },
+ {
+  "area": "Beranda dinamis",
+  "name": "Beranda menampilkan konten dari CMS (headline, program, pengasuh)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Beranda dinamis",
+  "name": "foto utama dari Supabase Storage tampil dengan alt",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Beranda dinamis",
+  "name": "JSON-LD terisi dan aman (< di-escape)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Beranda dinamis",
+  "name": "/profil menampilkan data dari CMS",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Beranda dinamis",
+  "name": "/sejarah menampilkan data dari CMS",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Beranda dinamis",
+  "name": "/kontak menampilkan data dari CMS",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Beranda dinamis",
+  "name": "link WhatsApp dinormalisasi ke wa.me/6281234567890",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Keamanan",
+  "name": "/dev-uploads dinonaktifkan saat Supabase aktif",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Kategori",
+  "name": "tambah kategori berita",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Kategori",
+  "name": "nama duplikat (tanpa peduli huruf besar) ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Kategori",
+  "name": "nama terlalu pendek ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Kategori",
+  "name": "ubah nama",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "unggah gambar sampul",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "validasi: judul & isi terlalu pendek",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "validasi: sampul tanpa deskripsi ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "validasi: path sampul di luar news/ ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "simpan draft -> redirect ke halaman edit",
+  "ok": true,
+  "note": "/admin/berita/8207b2f1-cccb-4bd2-9c75-b530b421ce00?ok=saved"
+ },
+ {
+  "area": "Berita",
+  "name": "slug otomatis & status draft di DB",
+  "ok": true,
+  "note": "peringatan-maulid-nabi-di-pondok"
+ },
+ {
+  "area": "Berita",
+  "name": "draft TIDAK tampil di publik (daftar, detail, sitemap)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "pratinjau draft untuk admin",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "pratinjau tidak bisa dibuka tanpa login",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "form edit terisi data tersimpan",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "terbitkan lewat edit",
+  "ok": true,
+  "note": "/admin/berita/8207b2f1-cccb-4bd2-9c75-b530b421ce00?ok=saved"
+ },
+ {
+  "area": "Berita",
+  "name": "detail publik 200 + judul + subjudul + daftar",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "OG tags + JSON-LD NewsArticle + gambar sampul beralt",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "muncul di daftar, kategori, pencarian, beranda, sitemap",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "pencarian tanpa hasil + input aman dari SQL injection",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Keamanan",
+  "name": "XSS pada judul/isi berita di-escape (tidak dieksekusi)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "tombol 'Tarik' mengembalikan ke draft",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "tombol 'Terbitkan' menayangkan lagi",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "daftar admin: pencarian + filter status",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "hapus berita -> hilang dari DB & publik",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Berita",
+  "name": "gambar sampul ikut terhapus dari Storage",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Kategori",
+  "name": "hapus kategori tidak menghapus berita (jadi tanpa kategori)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "validasi: nama & waktu mulai wajib",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "validasi: selesai sebelum mulai ditolak",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "tambah jadwal mendatang",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "publik: yang terbit & mendatang tampil",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "publik: jadwal lampau otomatis masuk Riwayat",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "publik: jadwal disembunyikan tidak tampil",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "waktu ditampilkan dalam WIB",
+  "ok": true,
+  "note": "08.00 WIB"
+ },
+ {
+  "area": "Jadwal",
+  "name": "tampil di Beranda",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "tandai dibatalkan -> badge 'Dibatalkan' di publik",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "tandai selesai -> pindah ke Riwayat",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "edit jadwal tersimpan",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Jadwal",
+  "name": "hapus jadwal",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "unggah 3 foto valid (JPG, PNG, JPG besar) berurutan",
+  "ok": true,
+  "note": "true,true,true,false"
+ },
+ {
+  "area": "Galeri",
+  "name": "berkas palsu ditolak dengan pesan jelas",
+  "ok": true,
+  "note": "Berkas bukan gambar yang valid."
+ },
+ {
+  "area": "Galeri",
+  "name": "3 baris tersimpan dengan thumbnail, dimensi, kategori, urutan",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "6 objek (utama + thumbnail) ada di Storage",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "thumbnail <= 640px",
+  "ok": true,
+  "note": "640px"
+ },
+ {
+  "area": "Galeri",
+  "name": "halaman publik menampilkan 3 foto (lazy, beralt)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "filter kategori publik",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "edit judul/deskripsi/tampil di beranda",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "foto 'tampil di beranda' muncul di Beranda",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "turunkan urutan foto pertama",
+  "ok": true,
+  "note": "1"
+ },
+ {
+  "area": "Galeri",
+  "name": "hapus foto: baris DB + 2 objek Storage terhapus",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Galeri",
+  "name": "urutan tersisa tetap utuh",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Keamanan",
+  "name": "SERVICE_ROLE_KEY / DATABASE_URL tidak ada di HTML publik maupun admin",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Keamanan",
+  "name": "kunci rahasia tidak ada di bundel JavaScript klien (.next/static)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "SEO",
+  "name": "robots.txt memblokir /admin & menunjuk sitemap",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Tautan",
+  "name": "tidak ada tautan internal mati (9 halaman dirayapi)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "SEO",
+  "name": "tepat satu <h1> per halaman",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "SEO",
+  "name": "semua <img> memiliki atribut alt",
+  "ok": true,
+  "note": "0 tanpa alt"
+ },
+ {
+  "area": "SEO",
+  "name": "title, meta description, og:title, og:image di Beranda",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "SEO",
+  "name": "sitemap memuat halaman utama dan berita terbit",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "logout menghapus cookie & redirect ke login",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "setelah logout, dasbor tertutup lagi",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "pembatasan percobaan login (5 gagal/15 menit)",
+  "ok": true,
+  "note": ""
+ },
+ {
+  "area": "Auth",
+  "name": "akun lain tidak ikut terkunci",
+  "ok": true,
+  "note": ""
+ }
+]
